@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema 
+    elementFormDefault="qualified"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    version="1.0"
+ >
+    <xs:element name="VpnProfile">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="VpnConfiguration">
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name="Name" type="xs:string" minOccurs="1" maxOccurs="1" />
+                            <xs:element name="AllUserConnection" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="ServerAddress" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="TunnelType" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="EncryptionLevel" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="AutoTriggerEnabled" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="AuthenticationMethod" minOccurs="0" maxOccurs="1" >
+                            <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="Method" type="xs:string" minOccurs="1" maxOccurs="5" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="SplitTunneling" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="L2tpPsk" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="RememberCredential" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="UseWinlogonCredential" type="xs:boolean" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="IdleDisconnectSeconds" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="MachineCertificateIssuerFilter" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="MachineCertificateEKUFilter" minOccurs="0" maxOccurs="1" >
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="0" maxOccurs="30">
+                                        <xs:element name="EKU" type="xs:string" minOccurs="0" maxOccurs="1" />
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                            <xs:element name="DnsSuffix" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="ProvisioningAuthority" type="xs:string" minOccurs="0" maxOccurs="1" />
+                            <xs:element name="VpnServerList" minOccurs="0" maxOccurs="1" >
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="0" maxOccurs="500">
+                                        <xs:sequence>
+                                            <xs:element name="ServerName" type="xs:string" />
+                                            <xs:element name="FriendlyName" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:sequence>
+                                </xs:complexType> 
+                            </xs:element>
+                            <xs:element name="Route" minOccurs="0" maxOccurs="1" >
+                                <xs:complexType>
+                                    <xs:sequence minOccurs="0" maxOccurs="200">
+                                        <xs:sequence>
+                                            <xs:element name="DestinationPrefix" type="xs:string" />
+                                            <xs:element name="Metric" type="xs:string" />
+                                        </xs:sequence>
+                                    </xs:sequence>
+                                </xs:complexType> 
+                            </xs:element>
+                            <xs:element name="CryptographySuite" minOccurs="0" maxOccurs="1" >
+                                <xs:complexType>
+                                    <xs:sequence>
+                                        <xs:element name="AuthenticationTransformConstants" type="xs:string" minOccurs="0" maxOccur
